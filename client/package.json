@@ -1,9 +1,9 @@
 {
-  "name": "angular-seed",
+  "name": "harassment-monitor",
   "private": true,
-  "version": "0.0.0",
-  "description": "A starter project for AngularJS",
-  "repository": "https://github.com/angular/angular-seed",
+  "version": "1.0.0",
+  "description": "A simple web app for monitoring Harassment",
+  "repository": "https://github.com/rajumjib/HarassmentMonitor/client",
   "license": "MIT",
   "devDependencies": {
     "bower": "^1.7.7",

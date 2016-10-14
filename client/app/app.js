@@ -1,14 +1,22 @@
 'use strict';
 
-// Declare app level module which depends on views, and components
-angular.module('myApp', [
+var angMonitorManager=angular.module('angMonitorManager', [
+  'ngResource',
   'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.version'
-]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
-
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  'ui.bootstrap'
+]).config(['$locationProvider', '$routeProvider', 
+  function($locationProvider, $routeProvider) {
+    //$locationProvider.hashPrefix('!');
+    $routeProvider.otherwise({redirectTo: '/'});
 }]);
+
+angMonitorManager.config(function (uibDatepickerConfig, uibDatepickerPopupConfig) {
+    uibDatepickerConfig.startingDay = 6;
+    uibDatepickerConfig.showWeeks = false;
+    uibDatepickerConfig.formatDay = "dd";
+    uibDatepickerConfig.formatMonth = "MM";
+    uibDatepickerConfig.formatYear = "yyyy";
+    uibDatepickerPopupConfig.uibDatepickerPopup = configData.dateFormat;
+    uibDatepickerPopupConfig.showButtonBar = false;
+
+});

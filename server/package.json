@@ -20,7 +20,15 @@
     "pg-hstore": "^2.3.2",
     "pg-promise": "^5.3.4",
     "pug": "^2.0.0-beta6",
+    "redis": "^2.6.2",
     "sequelize": "^3.24.3",
     "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "mongodb": "^2.2.10",
+    "mysql": "^2.11.1",
+    "protractor": "^3.2.2",
+    "sqlite3": "^3.1.6",
+    "tedious": "^1.14.0"
   }
 }

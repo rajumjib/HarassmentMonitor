@@ -9,7 +9,7 @@ var userDependency = dbFactory.getFactory().getUser();
 
 var userRepository = {
 
-    init = function (userModel) {
+    init: function (userModel) {
         userDependency = userModel || dbFactory.getFactory().getUser();
         return this;
     },
@@ -17,7 +17,7 @@ var userRepository = {
     /**
     * Create a user
     */
-    addNew = function (newUser, success, error) {
+    addNew: function (newUser, success, error) {
         var user = userDependency.build(newUser);
 
         /*
@@ -37,7 +37,7 @@ var userRepository = {
     /**
     * Show the current user
     */
-    findById = function (id, success, error) {
+    findById: function (id, success, error) {
         userDependency.find({ where: { id: id } })
             .success(success)
             .error(error);
@@ -46,7 +46,7 @@ var userRepository = {
     /**
     * Update a user
     */
-    updateById = function (id, updatedUser, success, error) {
+    updateById: function (id, updatedUser, success, error) {
 
         /*
         //encrypt password if requested
@@ -66,7 +66,7 @@ var userRepository = {
     /**
     * Delete a user
     */
-    deleteById = function (id, success, error) {
+    deleteById: function (id, success, error) {
         userDependency.destroy({ id: id })
             .success(success)
             .error(error);
@@ -75,7 +75,7 @@ var userRepository = {
     /**
     * List of Users
     */
-    getAll = function (options, success, error) {
+    getAll: function (options, success, error) {
 
         var opts = {};
 

@@ -11,6 +11,9 @@ var session = require('express-session');
 //var multer = require('multer');
 var errorHandler = require('errorhandler');
 
+var env = process.env.NODE_ENV || 'development';
+var config = require('./config')[env];
+
 var app = express();
 
 // view engine setup
@@ -21,14 +24,14 @@ app.use(cookieParser());
 app.use(session({
   resave: true,
   saveUninitialized: true,
-  secret: 'uwotm8'
+  secret: config.app.sessionSecret
 }));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 //app.use(multer());
 
-app.use('/client', express.static(path.join(__dirname, '../client')));
+app.use(config.common.staticClient, express.static(path.join(__dirname, '../client')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
@@ -41,11 +44,9 @@ app.get('/', function (req, res) {
 });
 */
 
-var routes = require('./routes/index');
-//var users = require('./routes/users');
-
+var routes = require('./routes');
 app.use('/', routes);
-//app.use('/users', users);
+require('./app/routes')(app);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -18,7 +18,7 @@ module.exports = {
 	test: {
 		user: user
 	},
-	production = {
+	production: {
 		user: user
 	}
 };

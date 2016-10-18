@@ -5,7 +5,8 @@ var common = {
   name: 'Monitoring App',
   root: rootPath,
   cookieName: "monitoringCookie",
-  tokenExpiration: 3600000 * 2
+  tokenExpiration: 3600000 * 2,
+  staticClient: '/client',
 }
 
 module.exports = {
@@ -23,6 +24,7 @@ module.exports = {
     app: {
       port: 8080,
       cookieSecret: "monitoringSecret",
+      sessionSecret: "monitoringSecret",
     }
   },
   test: {
@@ -34,6 +36,7 @@ module.exports = {
     app: {
       port: 8080,
       cookieSecret: "monitoringSecret",
+      sessionSecret: "monitoringSecret",
     },
   },
   production: {
@@ -45,7 +48,8 @@ module.exports = {
     },
     app: {
       port: 80,
-      cookieSecret: "monitoringProduction",
+      cookieSecret: "dtk;rtdu56987kjnxdf;,;67fgvk",
+      sessionSecret: "bbkghko08766dgvh/l-=65ghbhj",
     }
   }
 };

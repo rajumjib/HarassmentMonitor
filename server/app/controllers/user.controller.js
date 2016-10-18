@@ -4,7 +4,7 @@ var env = process.env.NODE_ENV || 'development';
 var config = require('../../config/di')[env]['user'];
 var di = config.service.location || '../services/user.service';
 
-var logger = require("../../config/logger");
+//var logger = require("../../config/logger");
 var constants = require("../../config/constants")['display'];
 
 /**
@@ -18,7 +18,7 @@ var userController = {
   /**
   * Create a user
   */
-  add = function (req, res) {
+  add: function (req, res) {
     var user = req.body;
 
     var success = function (data) {
@@ -27,7 +27,7 @@ var userController = {
     };
 
     var error = function (error) {
-      logger.error(error);
+      //logger.error(error);
       res.status(500)
         .json(error);
     };
@@ -38,7 +38,7 @@ var userController = {
   /**
   * Show the current user
   */
-  details = function (req, res) {
+  details: function (req, res) {
     var id = req.params.id;
 
     var success = function (data) {
@@ -47,7 +47,7 @@ var userController = {
     };
 
     var error = function (error) {
-      logger.error(error);
+      //logger.error(error);
       res.status(500)
         .json(error);
     };
@@ -58,7 +58,7 @@ var userController = {
   /**
   * Update a user
   */
-  update = function (req, res) {
+  update: function (req, res) {
     var id = req.params.id;
     var user = req.body;
 
@@ -68,7 +68,7 @@ var userController = {
     };
 
     var error = function (error) {
-      logger.error(error);
+      //logger.error(error);
       res.status(500)
         .json(error);
     };
@@ -79,7 +79,7 @@ var userController = {
   /**
   * Delete a user
   */
-  remove = function (req, res) {
+  remove: function (req, res) {
     var id = req.params.id;
 
     var success = function () {
@@ -88,7 +88,7 @@ var userController = {
     };
 
     var error = function (error) {
-      logger.error(error);
+      //logger.error(error);
       res.status(500)
         .json(error);
     };
@@ -99,7 +99,7 @@ var userController = {
   /**
   * List of Users
   */
-  list = function (req, res) {
+  list: function (req, res) {
     var offset = (req.param('offset') > 0 ? req.param('offset') : 1) - 1;
     var limit = (req.param('limit') > 0 ? req.param('limit') : constants.limit);
 
@@ -121,7 +121,7 @@ var userController = {
     };
 
     var error = function (err) {
-      logger.error(error);
+      //logger.error(error);
       res.status(500)
         .json(err);
     };

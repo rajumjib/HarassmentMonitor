@@ -14,35 +14,35 @@ var userService = {
   /**
   * Create a user
   */
-  addNew = function (user, success, error) {
+  addNew: function (user, success, error) {
     userDependency.add(user, success, error);
   },
 
   /**
   * Show the current user
   */
-  findById = function (id, success, error) {
+  findById: function (id, success, error) {
     userDependency.findById(id, success, error);
   },
 
   /**
   * Update a user
   */
-  updateById = function (id, user, success, error) {
+  updateById: function (id, user, success, error) {
     userDependency.updateById(id, user, success, error);
   },
 
   /**
   * Delete a user
   */
-  deleteById = function (id, success, error) {
+  deleteById: function (id, success, error) {
     userDependency.deleteById(id, success, error);
   },
 
   /**
   * List of Users
   */
-  getAll = function (filters, success, error) {
+  getAll: function (filters, success, error) {
     userDependency.getAll(filters, success, error);
   }
 }

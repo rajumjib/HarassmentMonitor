@@ -10,7 +10,7 @@ module.exports = {
   display: {
     limit: 10,
   },
-  routes = {
+  routes: {
 
     // Public resources
     index: "/",
@@ -52,7 +52,7 @@ module.exports = {
     }
   },
 
-  publicResources =[
+  publicResources: [
     { httpVerb: 'post', uri: sessions },
     { httpVerb: 'get', uri: sessions },
     { httpVerb: 'delete', uri: sessions }

@@ -9,18 +9,29 @@ var common = {
   staticClient: '/client',
 }
 
+var mssql = {
+  host: "localhost",//+'\SQLEXPRESS',
+  port: "45985",
+  name: "CautionCollision",
+  user: "sa",
+  password: "sa1234",
+  dialect: "mssql"
+};
+
+var mysql = {
+  host: "localhost",
+  port: "3306",
+  name: "monitoringdb",
+  user: "appuser",
+  password: "monitoringuser",
+  dialect: "mysql"
+};
+
 module.exports = {
   development: {
     common: common,
     loggerLevel: "debug",
-    db: {
-      host: "localhost",
-      port: "3306",
-      name: "monitoringdb",
-      user: "appuser",
-      password: "monitoringuser",
-      dialect: "mysql"
-    },
+    db: mssql,
     app: {
       port: 8080,
       cookieSecret: "monitoringSecret",
@@ -31,6 +42,7 @@ module.exports = {
     common: common,
     loggerLevel: "info",
     db: {
+      storage: './database/db.sqlite',
       dialect: "sqlite"
     },
     app: {
@@ -44,7 +56,7 @@ module.exports = {
     loggerLevel: "warning",
     db: {
       dbUrl: 'postgres://' + process.env.USER + ':@localhost:5432/monitoringdb',
-      dialect: "pg"
+      dialect: "postgres"
     },
     app: {
       port: 80,
@@ -53,3 +65,6 @@ module.exports = {
     }
   }
 };
+
+//'postgres://user:pass@example.com:5432/dbname'
+//'mysql://localhost:3306/database'

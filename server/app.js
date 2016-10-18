@@ -38,6 +38,11 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(methodOverride());
 
+// bootstrap database connection and save it in express context
+var db = require("./db");
+app.set("models", db.context);
+var factory = require("./app/repositories/db.factory").init(app);
+
 /*
 app.get('/', function (req, res) {
   res.send('Server is working. Good Work!');
